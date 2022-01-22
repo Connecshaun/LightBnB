@@ -82,17 +82,17 @@ exports.addUser = addUser;
  */
 const getAllReservations = function(guest_id, limit = 10) {
   return pool
-  .query (`SELECT * FROM reservations
+    .query(`SELECT * FROM reservations
   JOIN properties ON properties.id = property_id
   WHERE guest_id = $1
   LIMIT $2`,
-  [guest_id, limit])
-  .then((result) => {
-    return result.rows;
-  })
-  .catch((err) => {
-    return null;
-  });
+    [guest_id, limit])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      return null;
+    });
 };
 exports.getAllReservations = getAllReservations;
 
