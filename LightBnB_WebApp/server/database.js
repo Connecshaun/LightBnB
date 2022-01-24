@@ -135,6 +135,7 @@ const getAllProperties = function (options, limit = 10) {
       queryString += `WHERE properties.owner_id = $${queryParams.length}`;
     }
   }
+  //database price is stored in cents (use *100)
   if (options.minimum_price_per_night) {
     queryParams.push(options.minimum_price_per_night * 100);
     if (queryParams.length > 0) {
