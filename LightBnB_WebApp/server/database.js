@@ -51,7 +51,6 @@ const getUserWithId = function(id) {
 };
 exports.getUserWithId = getUserWithId;
 
-
 /**
  * Add a new user to the database.
  * @param {{name: string, password: string, email: string}} user
@@ -160,13 +159,6 @@ exports.getAllProperties = getAllProperties;
  * @param {{}} property An object containing all of the property details.
  * @return {Promise<{}>} A promise to the property.
  */
-// const addProperty = function(property) {
-//   const propertyId = Object.keys(properties).length + 1;
-//   property.id = propertyId;
-//   properties[propertyId] = property;
-//   return Promise.resolve(property);
-// };
-// exports.addProperty = addProperty;
 const addProperty = function(property) {
   return pool
     .query(`INSERT INTO properties (
