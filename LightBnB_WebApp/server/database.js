@@ -135,7 +135,7 @@ const getAllProperties = function (options, limit = 10) {
       queryString += `WHERE properties.owner_id = $${queryParams.length}`;
     }
   }
-  if(options.minimum_price_per_night) {
+  if (options.minimum_price_per_night) {
     queryParams.push(options.minimum_price_per_night * 100);
     if (queryParams.length > 0) {
       queryString += `AND properties.cost_per_night >= $${queryParams.length}`;
@@ -143,7 +143,7 @@ const getAllProperties = function (options, limit = 10) {
       queryString += `WHERE properties.cost_per_night >= $${queryParams.length}`;
     }
   }
-  if(options.maximum_price_per_night) {
+  if (options.maximum_price_per_night) {
     queryParams.push(options.maximum_price_per_night * 100);
     if (queryParams.length > 0) {
       queryString += `AND properties.cost_per_night <= $${queryParams.length}`;
@@ -166,7 +166,7 @@ const getAllProperties = function (options, limit = 10) {
 
   return pool.query(queryString, queryParams)
     .then(result => result.rows);
-}
+};
 exports.getAllProperties = getAllProperties;
 
 
